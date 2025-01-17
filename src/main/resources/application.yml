@@ -5,8 +5,12 @@ spring:
     database: POSTGRESQL
     show-sql: true
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: update
   datasource:
     url: jdbc:postgresql://localhost:5432/events
     username: event_user
     password: event_password
+  sql:
+    init:
+      mode: always
+      data-locations: classpath:/sql/data.sql
