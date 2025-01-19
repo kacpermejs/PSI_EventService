@@ -17,7 +17,7 @@ INSERT INTO event (id, venue_schematic_id, description, location, status, sale_s
 
 -- Insert EventPost data
 INSERT INTO event_post (id, event_id, title, description, thumbnail_url) VALUES
-(1, 1, 'Band Concert Event Post', 'Details about the concert including special performances', 'http://example.com/thumbnail1.jpg'),
-(2, 2, 'Art Exhibit Announcement', 'Opening night details for the upcoming art exhibition', 'http://example.com/thumbnail2.jpg'),
-(3, 3, 'Comedy Night Promo', 'Stand-up comedy night with several famous comedians', 'http://example.com/thumbnail3.jpg'),
-(4, 4, 'Festival Highlights', 'Everything you need to know about the upcoming food festival', 'http://example.com/thumbnail4.jpg');
+(1, 1, 'Band Concert Event Post', 'Details about the concert including special performances', 'https://picsum.photos/300/200?random=1'),
+(2, 2, 'Art Exhibit Announcement', 'Opening night details for the upcoming art exhibition', 'https://picsum.photos/300/200?random=2'),
+(3, 3, 'Comedy Night Promo', 'Stand-up comedy night with several famous comedians', 'https://picsum.photos/300/200?random=3'),
+(4, 4, 'Festival Highlights', 'Everything you need to know about the upcoming food festival', 'https://picsum.photos/300/200?random=4');
