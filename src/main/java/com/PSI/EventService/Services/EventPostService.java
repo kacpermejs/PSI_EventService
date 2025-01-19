@@ -6,8 +6,8 @@ import com.PSI.EventService.Repositories.EventPostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class EventPostService {
@@ -18,21 +18,15 @@ public class EventPostService {
         // Fetch EventPosts sorted by eventStartDate using the JPQL query
         List<EventPost> eventPosts = eventPostRepository.findAllEventPostsSortedByEventStartDate();
 
-        List<EventPostDTO> eventPostDTOs = new ArrayList<>();
-
-        // Map EventPost to EventPostDTO using a traditional loop
-        for (EventPost ep : eventPosts) {
-            EventPostDTO dto = new EventPostDTO(
-                    ep.getId(),
-                    ep.getTitle(),
-                    ep.getDescription(),
-                    ep.getThumbnailUrl(),
-                    ep.getEvent().getEventStartDate()
-            );
-            eventPostDTOs.add(dto);
-        }
-
-        return eventPostDTOs;
+        return eventPosts.stream()
+                .map(ep -> EventPostDTO.builder()
+                        .id(ep.getId())
+                        .title(ep.getTitle())
+                        .description(ep.getDescription())
+                        .thumbnailUrl(ep.getThumbnailUrl())
+                        .eventStartDate(ep.getEvent().getEventStartDate())
+                        .build())
+                .collect(Collectors.toList());
     }
 
 }
