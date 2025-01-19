@@ -1,5 +1,5 @@
 # Build
-FROM maven:3.9.9-eclipse-temurin-23-alpine AS build
+FROM maven:3.9.9-eclipse-temurin-21-alpine AS build
 WORKDIR /app
 COPY pom.xml .
 COPY src ./src
@@ -10,7 +10,7 @@ RUN echo "Build completed!"
 RUN echo "Running in prod profile!"
 
 # Deploy
-FROM openjdk:23-jdk-slim
+FROM openjdk:21-jdk-slim
 WORKDIR /app
 COPY --from=build /app/target/EventService.jar ./app.jar
 EXPOSE 8080
