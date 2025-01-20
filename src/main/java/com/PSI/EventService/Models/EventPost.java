@@ -1,8 +1,6 @@
 package com.PSI.EventService.Models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
@@ -14,6 +12,13 @@ public class EventPost {
     private long id;
     @OneToOne
     private Event event;
+
+    @ManyToMany
+    private Tag[] tags;
+
+    @ManyToMany
+    private Performer[] performers;
+
     private String title;
     private String description;
     private String thumbnailUrl;
