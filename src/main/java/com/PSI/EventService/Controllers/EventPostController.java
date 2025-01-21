@@ -23,7 +23,7 @@ public class EventPostController {
     @Autowired
     private EventDetailsService eventDetailsService;
 
-    @GetMapping("/")
+    @GetMapping("")
     public List<EventPostDTO> getEventPosts() {
         return eventPostService.getSortedEventPostDTOs();
     }
