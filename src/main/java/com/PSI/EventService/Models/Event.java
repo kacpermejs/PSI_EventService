@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.sql.Timestamp;
 
@@ -12,6 +13,7 @@ import java.sql.Timestamp;
 @Data
 @Builder
 @AllArgsConstructor
+@NoArgsConstructor
 public class Event {
     @Id
     private long id;
@@ -24,6 +26,4 @@ public class Event {
     private Timestamp saleStartDate;
     private Timestamp eventStartDate;
     private Timestamp saleEndDate;
-
-    public Event() {}
 }

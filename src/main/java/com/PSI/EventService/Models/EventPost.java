@@ -7,6 +7,7 @@ import lombok.*;
 @Data
 @Builder
 @AllArgsConstructor
+@NoArgsConstructor
 public class EventPost {
     @Id
     private long id;
@@ -22,6 +23,4 @@ public class EventPost {
     private String title;
     private String description;
     private String thumbnailUrl;
-
-    public EventPost() {}
 }

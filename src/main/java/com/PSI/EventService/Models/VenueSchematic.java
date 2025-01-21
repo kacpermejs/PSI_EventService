@@ -1,25 +1,24 @@
 package com.PSI.EventService.Models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 @Entity
 @Data
 @Builder
 @AllArgsConstructor
+@NoArgsConstructor
 public class VenueSchematic {
     @Id
     private long id;
     private String name;
     @ManyToOne
     private Venue venue;
-    @OneToMany
-    private SchematicObject[] schematicObjects;
-
-    public VenueSchematic() {}
+    @OneToMany(mappedBy = "schematic", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<SchematicObject> schematicObjects;
 }

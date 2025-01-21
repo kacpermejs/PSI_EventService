@@ -7,11 +7,13 @@ import jakarta.persistence.OneToOne;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Data
 @Builder
 @AllArgsConstructor
+@NoArgsConstructor
 public class VenueSection {
     @Id
     private long id;
@@ -21,5 +23,6 @@ public class VenueSection {
     @Column(nullable = false)
     private String label;
 
-    private int capacity;
+    @Column(nullable = true)
+    private Integer capacity = null;
 }
