@@ -23,6 +23,7 @@ public class EventPostService {
                         .id(ep.getId())
                         .title(ep.getTitle())
                         .description(ep.getDescription())
+                        .location(ep.getLocation())
                         .thumbnailUrl(ep.getThumbnailUrl())
                         .eventStartDate(ep.getEvent().getEventStartDate())
                         .build())

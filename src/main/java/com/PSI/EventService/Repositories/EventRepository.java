@@ -10,5 +10,6 @@ import org.springframework.data.repository.query.Param;
 import java.util.Optional;
 
 public interface EventRepository extends JpaRepository<Event, Long> {
+    @EntityGraph(attributePaths = {"venueSchematic.venue", "post"})
     Optional<Event> findById(long id);
 }

@@ -14,6 +14,7 @@ public class EventPostDTO {
     private long id;
     private String title;
     private String description;
+    private String location;
     private String thumbnailUrl;
     private Timestamp eventStartDate;
 }

@@ -15,6 +15,7 @@ import java.sql.Timestamp;
 @AllArgsConstructor
 public class EventDetailsDTO {
     private long id;
+    private String title;
     private String description;
     private String location;
     private EventStatus status;

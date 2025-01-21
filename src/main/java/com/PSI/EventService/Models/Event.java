@@ -20,8 +20,9 @@ public class Event {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "venue_schematic_id")
     private VenueSchematic venueSchematic;
-    private String description;
-    private String location;
+    @OneToOne(fetch = FetchType.LAZY, mappedBy = "event")
+    private EventPost post;
+
     @Enumerated(EnumType.ORDINAL)
     private EventStatus status;
     private Timestamp saleStartDate;

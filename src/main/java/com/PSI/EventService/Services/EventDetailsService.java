@@ -20,8 +20,9 @@ public class EventDetailsService {
         return eventRepository.findById(id).map(obj -> {
             return EventDetailsDTO.builder()
                     .id(obj.getId())
-                    .description(obj.getDescription())
-                    .location(obj.getLocation())
+                    .title(obj.getPost().getTitle())
+                    .description(obj.getPost().getDescription())
+                    .location(obj.getPost().getLocation())
                     .status(obj.getStatus())
                     .saleStartDate(obj.getSaleStartDate())
                     .saleEndDate(obj.getSaleEndDate())
@@ -29,6 +30,7 @@ public class EventDetailsService {
                     .venueSchematic(VenueSchematic.builder()
                             .id(obj.getVenueSchematic().getId())
                             .name(obj.getVenueSchematic().getName())
+                            //.schematicObjects(obj.getVenueSchematic().getSchematicObjects()) // we don't want that but entity graph did not make it disappear
                             .venue(Venue.builder()
                                     .id(obj.getVenueSchematic().getVenue().getId())
                                     .name(obj.getVenueSchematic().getVenue().getName())

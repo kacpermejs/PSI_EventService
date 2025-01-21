@@ -11,7 +11,9 @@ import lombok.*;
 public class EventPost {
     @Id
     private long id;
-    @OneToOne
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "event_id") // Foreign key column for the Event entity
     private Event event;
 
     @ManyToMany
@@ -22,5 +24,6 @@ public class EventPost {
 
     private String title;
     private String description;
+    private String location;
     private String thumbnailUrl;
 }
