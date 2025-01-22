@@ -16,12 +16,14 @@ public class Seat {
     @Id
     private long id;
 
-    @ManyToOne
-    @JoinColumn(name = "venue_section_id", nullable = false)  // Explicitly name the column
-    private VenueSection section;
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    private VenueSchematic schematic;
+
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    private VenueSection venueSection;
 
     @OneToOne
-    @JoinColumn(name = "schematic_object_id")  // Explicitly name the column
+    @JoinColumn
     private SchematicObject schematicObject;
 
     @Column(nullable = false)

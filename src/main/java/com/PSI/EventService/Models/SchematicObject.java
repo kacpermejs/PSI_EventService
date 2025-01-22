@@ -19,13 +19,12 @@ public class SchematicObject {
     private long id;
     private String name = "New Schematic Object";
 
-    @ManyToOne
-    @JoinColumn(name = "schematicId")
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private VenueSchematic schematic;
 
     @ManyToOne
     @JoinColumn(name = "parentId")
-    private SchematicObject parent;
+    private SchematicObject parent = null;
 
     @OneToMany(mappedBy = "parent", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<SchematicObject> children = new ArrayList<>();

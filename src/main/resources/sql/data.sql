@@ -45,18 +45,18 @@ VALUES
 (7, 'Seat 1',    '',      true, 1, 6,    0.0,  2, -8.0,  0.0),      -- Child of object 2 (seat 1 section B)
 (8, 'Scene',     'Scena', true, 1, NULL, 0.0,  2, -8.0,  0.0);      -- Scene
 
-INSERT INTO venue_section (id, schematic_object_id, capacity, label)
+INSERT INTO venue_section (id, schematic_object_id, schematic_id, capacity, label)
 VALUES
-(1, 1, NULL, 'Section A'),  -- Section for schematic object 1
-(2, 4, NULL, 'Section B');   -- Section for schematic object 2
+(1, 1, 1, NULL, 'Section A'),  -- Section for schematic object 1
+(2, 5, 1, NULL, 'Section B');   -- Section for schematic object 2
 
 -- Insert Seat data with SeatType enum mapped as smallint
 -- Single = 0, Double = 1, Disabled = 2, Custom = 3
-INSERT INTO seat (id, schematic_object_id, venue_section_id, capacity, type, label, name, seat_column, seat_row)
+INSERT INTO seat (id, schematic_id, schematic_object_id, venue_section_id, capacity, type, label, name, seat_column, seat_row)
 VALUES
-(1, 2, 1, 1, 0, 'r1m1sA', NULL, '1', '1'), -- Seat in Section A
-(2, 3, 1, 1, 0, 'r1m2sA', NULL, '2', '1'), -- Another seat in Section A
-(3, 5, 2, 1, 0, 'r1m2sB', NULL, '1', '1'); -- Seat in Section B
+(1, 1, 3, 1, 1, 0, 'r1m1sA', NULL, '1', '1'), -- Seat in Section A
+(2, 1, 4, 1, 1, 0, 'r1m2sA', NULL, '2', '1'), -- Another seat in Section A
+(3, 1, 7, 2, 1, 0, 'r1m2sB', NULL, '1', '1'); -- Seat in Section B
 
 -- Insert Event data with EventStatus enum mapped as smallint
 -- Active = 0, Canceled = 1, Finished = 2, Draft = 3

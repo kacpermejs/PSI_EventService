@@ -19,6 +19,12 @@ public class VenueSchematic {
     private String name;
     @ManyToOne
     private Venue venue;
-    @OneToMany(mappedBy = "schematic", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "schematic", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<SchematicObject> schematicObjects;
+
+    @OneToMany(mappedBy = "schematic", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<VenueSection> venueSections;
+
+    @OneToMany(mappedBy = "schematic", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<Seat> seats;
 }

@@ -1,8 +1,10 @@
 package com.PSI.EventService.DTOs;
 
+import com.PSI.EventService.DTOs.SchematicObjectMetadata.SchematicObjectMetadata;
 import lombok.Builder;
 import lombok.Data;
 import java.util.List;
+import java.util.Map;
 
 @Data
 @Builder
@@ -16,4 +18,6 @@ public class SchematicObjectDTO {
     private float angle;
     private int layer;
     private List<SchematicObjectDTO> children;
+
+    private List<SchematicObjectMetadata> metadata;
 }

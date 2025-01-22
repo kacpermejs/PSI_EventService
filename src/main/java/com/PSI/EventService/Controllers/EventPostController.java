@@ -2,7 +2,6 @@ package com.PSI.EventService.Controllers;
 
 import com.PSI.EventService.DTOs.EventDetailsDTO;
 import com.PSI.EventService.DTOs.EventPostDTO;
-import com.PSI.EventService.Models.Event;
 import com.PSI.EventService.Services.EventDetailsService;
 import com.PSI.EventService.Services.EventPostService;
 import org.springframework.beans.factory.annotation.Autowired;
