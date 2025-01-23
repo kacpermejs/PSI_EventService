@@ -63,7 +63,7 @@ VALUES
 (25, 'Seat 2',      '',     true, 1, 2,     0.0, 2,     15.0,   5.0,    10.0,   10.0),       -- Child of object 23 (seat 14 row 1)
 (26, 'Row 2',       '',     true, 1, 1,     0.0, 1,     10.0,   60.0,   180.0,  20.0),     -- Grouping object for row 2 in section D
 (27, 'Seat 3',      '',     true, 1, 5,     0.0, 2,     5.0,    5.0,    10.0,   10.0),       -- Child of object 26 (seat 15 row 2)
-(28, 'Seat 4',      '',     true, 1, 5,     0.0, 2,     15.0,   5.0,    10.0,   10.0),       -- Child of object 26 (seat 16 row 2)
+(28, 'Seat 4',      '',     true, 1, 5,     0.0, 2,     15.0,   5.0,    10.0,   10.0);       -- Child of object 26 (seat 16 row 2)
 
 
 -- Inserting venue section data
