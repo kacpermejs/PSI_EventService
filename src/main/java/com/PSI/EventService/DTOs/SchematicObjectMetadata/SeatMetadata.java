@@ -9,6 +9,8 @@ import lombok.Data;
 @Builder
 @AllArgsConstructor
 public class SeatMetadata implements SchematicObjectMetadata {
+    public static final String TYPE = "seat";
+
     private long id;
     private String label;
     private String name;
@@ -21,6 +23,6 @@ public class SeatMetadata implements SchematicObjectMetadata {
 
     @Override
     public String getType() {
-        return "seat";
+        return TYPE;
     }
 }

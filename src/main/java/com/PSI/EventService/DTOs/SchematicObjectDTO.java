@@ -22,4 +22,8 @@ public class SchematicObjectDTO {
     private List<SchematicObjectDTO> children;
 
     private List<SchematicObjectMetadata> metadata;
+
+    public void addMetadata(SchematicObjectMetadata data) {
+        metadata.add(data);
+    }
 }
