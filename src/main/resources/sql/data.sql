@@ -34,29 +34,66 @@ VALUES
 (2, 2, 'Schemat podstawowy sali czerwonej'),
 (3, 3, 'Schemat podstawowy sali głownej');
 
-INSERT INTO schematic_object (id, name, label, show_label, schematic_id, parent_id, angle, layer, x, y)
+INSERT INTO schematic_object (id, name, label, show_label, schematic_id, parent_id, angle, layer, x, y, width, height)
 VALUES
-(1, 'Section A', 'A',     true, 1, NULL, 0.0,  0,  0.0,  0.0),  -- Root object for section A
-(2, 'Row 1',     '',      true, 1, 1,    0.0,  1,  0.0,  0.0),      -- Grouping object for row 1 in section A
-(3, 'Seat 1',    '',      true, 1, 2,    0.0,  2, -5.0,  0.0),        -- Child of object 1 (seat 1 row 1)
-(4, 'Seat 2',    '',      true, 1, 2,    0.0,  2,  5.0,  0.0),        -- Child of object 1 (seat 2 row 1)
-(5, 'Section B', 'B',     true, 1, NULL, 0.0,  0,  0.0, -10.0), -- Root object for section B
-(6, 'Row 1',     '',      true, 1, 5,    20.0, 1,  0.0,  0.0),     -- Grouping object for row 1 in section B
-(7, 'Seat 1',    '',      true, 1, 6,    0.0,  2, -8.0,  0.0),      -- Child of object 2 (seat 1 section B)
-(8, 'Scene',     'Scena', true, 1, NULL, 0.0,  2, -8.0,  0.0);      -- Scene
+(1, 'Section A', 'A', true, 1, NULL, 0.0,  0,  0.0,  0.0, 200.0, 100.0),  -- Root object for section A
+(2, 'Row 1', '', true, 1, 1, 0.0, 1, 0.0, 0.0, 180.0, 20.0),           -- Grouping object for row 1 in section A
+(3, 'Seat 1', '', true, 1, 2, 0.0, 2, -5.0, 0.0, 10.0, 10.0),            -- Child of object 1 (seat 1 row 1)
+(4, 'Seat 2', '', true, 1, 2, 0.0, 2, 5.0, 0.0, 10.0, 10.0),             -- Child of object 1 (seat 2 row 1)
+(5, 'Row 2', '', true, 1, 1, 0.0, 1, 0.0, 10.0, 180.0, 20.0),           -- Grouping object for row 2 in section A
+(6, 'Seat 3', '', true, 1, 5, 0.0, 2, -5.0, 10.0, 10.0, 10.0),           -- Child of object 5 (seat 3 row 2)
+(7, 'Seat 4', '', true, 1, 5, 0.0, 2, 5.0, 10.0, 10.0, 10.0),            -- Child of object 5 (seat 4 row 2)
+(8, 'Section B', 'B', true, 1, NULL, 0.0,  0,  0.0, -10.0, 200.0, 100.0), -- Root object for section B
+(9, 'Row 1', '', true, 1, 8, 20.0, 1, 0.0, 0.0, 180.0, 20.0),            -- Grouping object for row 1 in section B
+(10, 'Seat 5', '', true, 1, 9, 0.0, 2, -8.0, 0.0, 10.0, 10.0),            -- Child of object 9 (seat 5 row 1)
+(11, 'Seat 6', '', true, 1, 9, 0.0, 2, 8.0, 0.0, 10.0, 10.0),            -- Child of object 9 (seat 6 row 1)
+(12, 'Row 2', '', true, 1, 8, 0.0, 1, 0.0, 10.0, 180.0, 20.0),           -- Grouping object for row 2 in section B
+(13, 'Seat 7', '', true, 1, 12, 0.0, 2, -8.0, 10.0, 10.0, 10.0),          -- Child of object 12 (seat 7 row 2)
+(14, 'Seat 8', '', true, 1, 12, 0.0, 2, 8.0, 10.0, 10.0, 10.0),           -- Child of object 12 (seat 8 row 2)
+(15, 'Section C', 'C', true, 1, NULL, 0.0,  0,  0.0, -20.0, 200.0, 100.0), -- Root object for section C
+(16, 'Row 1', '', true, 1, 15, 0.0, 1, 0.0, 0.0, 180.0, 20.0),           -- Grouping object for row 1 in section C
+(17, 'Seat 9', '', true, 1, 16, 0.0, 2, -5.0, 0.0, 10.0, 10.0),           -- Child of object 16 (seat 9 row 1)
+(18, 'Seat 10', '', true, 1, 16, 0.0, 2, 5.0, 0.0, 10.0, 10.0),          -- Child of object 16 (seat 10 row 1)
+(19, 'Row 2', '', true, 1, 15, 0.0, 1, 0.0, 10.0, 180.0, 20.0),          -- Grouping object for row 2 in section C
+(20, 'Seat 11', '', true, 1, 19, 0.0, 2, -5.0, 10.0, 10.0, 10.0),         -- Child of object 19 (seat 11 row 2)
+(21, 'Seat 12', '', true, 1, 19, 0.0, 2, 5.0, 10.0, 10.0, 10.0),          -- Child of object 19 (seat 12 row 2)
+(22, 'Section D', 'D', true, 1, NULL, 0.0,  0,  0.0, -30.0, 200.0, 100.0), -- Root object for section D
+(23, 'Row 1', '', true, 1, 22, 0.0, 1, 0.0, 0.0, 180.0, 20.0),           -- Grouping object for row 1 in section D
+(24, 'Seat 13', '', true, 1, 23, 0.0, 2, -5.0, 0.0, 10.0, 10.0),          -- Child of object 23 (seat 13 row 1)
+(25, 'Seat 14', '', true, 1, 23, 0.0, 2, 5.0, 0.0, 10.0, 10.0),           -- Child of object 23 (seat 14 row 1)
+(26, 'Row 2', '', true, 1, 22, 0.0, 1, 0.0, 10.0, 180.0, 20.0),          -- Grouping object for row 2 in section D
+(27, 'Seat 15', '', true, 1, 26, 0.0, 2, -5.0, 10.0, 10.0, 10.0),         -- Child of object 26 (seat 15 row 2)
+(28, 'Seat 16', '', true, 1, 26, 0.0, 2, 5.0, 10.0, 10.0, 10.0);          -- Child of object 26 (seat 16 row 2)
 
+
+-- Inserting venue section data
 INSERT INTO venue_section (id, schematic_object_id, schematic_id, capacity, label)
 VALUES
 (1, 1, 1, NULL, 'Section A'),  -- Section for schematic object 1
-(2, 5, 1, NULL, 'Section B');   -- Section for schematic object 2
+(2, 5, 1, NULL, 'Section B'),  -- Section for schematic object 2
+(3, 15, 1, NULL, 'Section C'), -- Section for schematic object 15
+(4, 22, 1, NULL, 'Section D'); -- Section for schematic object 22
 
--- Insert Seat data with SeatType enum mapped as smallint
--- Single = 0, Double = 1, Disabled = 2, Custom = 3
+-- Inserting seat data
+-- SeatType enum mapped as smallint: Single = 0, Double = 1, Disabled = 2, Custom = 3
 INSERT INTO seat (id, schematic_id, schematic_object_id, venue_section_id, capacity, type, label, name, seat_column, seat_row)
 VALUES
-(1, 1, 3, 1, 1, 0, 'r1m1sA', NULL, '1', '1'), -- Seat in Section A
-(2, 1, 4, 1, 1, 0, 'r1m2sA', NULL, '2', '1'), -- Another seat in Section A
-(3, 1, 7, 2, 1, 0, 'r1m2sB', NULL, '1', '1'); -- Seat in Section B
+(1, 1, 3, 1, 1, 0, 'r1c1sA', NULL, '1', '1'), -- Seat in Section A
+(2, 1, 4, 1, 1, 0, 'r1c2sA', NULL, '2', '1'), -- Another seat in Section A
+(3, 1, 6, 1, 1, 0, 'r2c1sA', NULL, '1', '2'), -- Seat in Section A, Row 2
+(4, 1, 7, 1, 1, 0, 'r2c2sA', NULL, '2', '2'), -- Seat in Section A, Row 2
+(5, 1, 10, 2, 1, 0, 'r1c1sB', NULL, '1', '1'), -- Seat in Section B
+(6, 1, 11, 2, 1, 0, 'r1c2sB', NULL, '2', '1'), -- Another seat in Section B
+(7, 1, 13, 2, 1, 0, 'r2c1sB', NULL, '1', '2'), -- Seat in Section B, Row 2
+(8, 1, 14, 2, 1, 0, 'r2c2sB', NULL, '2', '2'), -- Seat in Section B, Row 2
+(9, 1, 17, 3, 1, 0, 'r1c1sC', NULL, '1', '1'), -- Seat in Section C
+(10, 1, 18, 3, 1, 0, 'r1c2sC', NULL, '2', '1'), -- Another seat in Section C
+(11, 1, 20, 3, 1, 0, 'r2c1sC', NULL, '1', '2'), -- Seat in Section C, Row 2
+(12, 1, 21, 3, 1, 0, 'r2c2sC', NULL, '2', '2'), -- Seat in Section C, Row 2
+(13, 1, 24, 4, 1, 0, 'r1c1sD', NULL, '1', '1'), -- Seat in Section D
+(14, 1, 25, 4, 1, 0, 'r1c2sD', NULL, '2', '1'), -- Another seat in Section D
+(15, 1, 27, 4, 1, 0, 'r2c1sD', NULL, '1', '2'), -- Seat in Section D, Row 2
+(16, 1, 28, 4, 1, 0, 'r2c2sD', NULL, '2', '2'); -- Seat in Section D, Row 2
 
 -- Insert Event data with EventStatus enum mapped as smallint
 -- Active = 0, Canceled = 1, Finished = 2, Draft = 3

@@ -33,6 +33,8 @@ public class SchematicObject {
     private Boolean showLabel = false;
     private float x;
     private float y;
+    private float width;
+    private float height;
     private float angle;
     private int layer;
 }

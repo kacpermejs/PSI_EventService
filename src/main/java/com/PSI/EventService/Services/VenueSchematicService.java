@@ -98,6 +98,8 @@ public class VenueSchematicService {
                 .label(obj.getLabel())
                 .x(obj.getX())
                 .y(obj.getY())
+                .width(obj.getWidth())
+                .height(obj.getHeight())
                 .angle(obj.getAngle())
                 .layer(obj.getLayer())
                 .children(obj.getChildren()

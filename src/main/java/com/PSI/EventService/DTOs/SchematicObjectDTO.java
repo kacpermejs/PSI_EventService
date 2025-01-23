@@ -15,6 +15,8 @@ public class SchematicObjectDTO {
     private Boolean showLabel;
     private float x;
     private float y;
+    private float width;
+    private float height;
     private float angle;
     private int layer;
     private List<SchematicObjectDTO> children;
