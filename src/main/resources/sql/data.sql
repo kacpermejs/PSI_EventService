@@ -69,10 +69,10 @@ VALUES
 -- Inserting venue section data
 INSERT INTO venue_section (id, schematic_object_id, schematic_id, capacity, label)
 VALUES
-(1, 1, 1, NULL, 'Section A'),  -- Section for schematic object 1
-(2, 8, 1, NULL, 'Section B'),  -- Section for schematic object 2
-(3, 15, 1, NULL, 'Section C'), -- Section for schematic object 15
-(4, 22, 1, NULL, 'Section D'); -- Section for schematic object 22
+(1, 1, 1, 4, 'Section A'),  -- Section for schematic object 1
+(2, 8, 1, 5, 'Section B'),  -- Section for schematic object 2
+(3, 15, 1, 5, 'Section C'), -- Section for schematic object 15
+(4, 22, 1, 5, 'Section D'); -- Section for schematic object 22
 
 -- Inserting seat data
 -- SeatType enum mapped as smallint: Single = 0, Double = 1, Disabled = 2, Custom = 3
