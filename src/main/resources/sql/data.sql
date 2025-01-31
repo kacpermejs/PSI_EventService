@@ -44,26 +44,26 @@ VALUES
 (6,  'Seat 3',      '',     true, 1, 5,     0.0, 2,     5.0,    5.0,    10.0,   10.0),       -- Child of object 5 (seat 3 row 2)
 (7,  'Seat 4',      '',     true, 1, 5,     0.0, 2,     15.0,   5.0,    10.0,   10.0),       -- Child of object 5 (seat 4 row 2)
 (8,  'Section B',   'B',    true, 1, NULL,  0.0, 0,     220.0, -180.0,  200.0,  100.0),  -- Root object for section B
-(9,  'Row 1',       '',     true, 1, 1,     0.0, 1,     10.0,   30.0,   180.0,  20.0),     -- Grouping object for row 1 in section B
-(10, 'Seat 1',      '',     true, 1, 2,     0.0, 2,     5.0,    5.0,    10.0,   10.0),       -- Child of object 9 (seat 5 row 1)
-(11, 'Seat 2',      '',     true, 1, 2,     0.0, 2,     15.0,   5.0,    10.0,   10.0),       -- Child of object 9 (seat 6 row 1)
-(12, 'Row 2',       '',     true, 1, 1,     0.0, 1,     10.0,   60.0,   180.0,  20.0),     -- Grouping object for row 2 in section B
-(13, 'Seat 3',      '',     true, 1, 5,     0.0, 2,     5.0,    5.0,    10.0,   10.0),       -- Child of object 12 (seat 7 row 2)
-(14, 'Seat 4',      '',     true, 1, 5,     0.0, 2,     15.0,   5.0,    10.0,   10.0),       -- Child of object 12 (seat 8 row 2)
+(9,  'Row 1',       '',     true, 1, 8,     0.0, 1,     10.0,   30.0,   180.0,  20.0),     -- Grouping object for row 1 in section B
+(10, 'Seat 1',      '',     true, 1, 9,     0.0, 2,     5.0,    5.0,    10.0,   10.0),       -- Child of object 9 (seat 5 row 1)
+(11, 'Seat 2',      '',     true, 1, 9,     0.0, 2,     15.0,   5.0,    10.0,   10.0),       -- Child of object 9 (seat 6 row 1)
+(12, 'Row 2',       '',     true, 1, 8,     0.0, 1,     10.0,   60.0,   180.0,  20.0),     -- Grouping object for row 2 in section B
+(13, 'Seat 3',      '',     true, 1, 12,     0.0, 2,     5.0,    5.0,    10.0,   10.0),       -- Child of object 12 (seat 7 row 2)
+(14, 'Seat 4',      '',     true, 1, 12,     0.0, 2,     15.0,   5.0,    10.0,   10.0),       -- Child of object 12 (seat 8 row 2)
 (15, 'Section C',   'C',    true, 1, NULL,  0.0, 0,     0.0,    -20.0,  200.0,  100.0),  -- Root object for section C
-(16, 'Row 1',       '',     true, 1, 1,     0.0, 1,     10.0,   30.0,   180.0,  20.0),     -- Grouping object for row 1 in section C
-(17, 'Seat 1',      '',     true, 1, 2,     0.0, 2,     5.0,    5.0,    10.0,   10.0),       -- Child of object 16 (seat 9 row 1)
-(18, 'Seat 2',      '',     true, 1, 2,     0.0, 2,     15.0,   5.0,    10.0,   10.0),       -- Child of object 16 (seat 10 row 1)
-(19, 'Row 2',       '',     true, 1, 1,     0.0, 1,     10.0,   60.0,   180.0,  20.0),     -- Grouping object for row 2 in section C
-(20, 'Seat 3',      '',     true, 1, 5,     0.0, 2,     5.0,    5.0,    10.0,   10.0),       -- Child of object 19 (seat 11 row 2)
-(21, 'Seat 4',      '',     true, 1, 5,     0.0, 2,     15.0,   5.0,    10.0,   10.0),       -- Child of object 19 (seat 12 row 2)
+(16, 'Row 1',       '',     true, 1, 15,     0.0, 1,     10.0,   30.0,   180.0,  20.0),     -- Grouping object for row 1 in section C
+(17, 'Seat 1',      '',     true, 1, 16,     0.0, 2,     5.0,    5.0,    10.0,   10.0),       -- Child of object 16 (seat 9 row 1)
+(18, 'Seat 2',      '',     true, 1, 16,     0.0, 2,     15.0,   5.0,    10.0,   10.0),       -- Child of object 16 (seat 10 row 1)
+(19, 'Row 2',       '',     true, 1, 15,     0.0, 1,     10.0,   60.0,   180.0,  20.0),     -- Grouping object for row 2 in section C
+(20, 'Seat 3',      '',     true, 1, 19,     0.0, 2,     5.0,    5.0,    10.0,   10.0),       -- Child of object 19 (seat 11 row 2)
+(21, 'Seat 4',      '',     true, 1, 19,     0.0, 2,     15.0,   5.0,    10.0,   10.0),       -- Child of object 19 (seat 12 row 2)
 (22, 'Section D',   'D',    true, 1, NULL,  0.0, 0,     0.0,    -30.0,  200.0,  100.0),  -- Root object for section D
-(23, 'Row 1',       '',     true, 1, 1,     0.0, 1,     10.0,   30.0,   180.0,  20.0),     -- Grouping object for row 1 in section D
-(24, 'Seat 1',      '',     true, 1, 2,     0.0, 2,     5.0,    5.0,    10.0,   10.0),       -- Child of object 23 (seat 13 row 1)
-(25, 'Seat 2',      '',     true, 1, 2,     0.0, 2,     15.0,   5.0,    10.0,   10.0),       -- Child of object 23 (seat 14 row 1)
-(26, 'Row 2',       '',     true, 1, 1,     0.0, 1,     10.0,   60.0,   180.0,  20.0),     -- Grouping object for row 2 in section D
-(27, 'Seat 3',      '',     true, 1, 5,     0.0, 2,     5.0,    5.0,    10.0,   10.0),       -- Child of object 26 (seat 15 row 2)
-(28, 'Seat 4',      '',     true, 1, 5,     0.0, 2,     15.0,   5.0,    10.0,   10.0);       -- Child of object 26 (seat 16 row 2)
+(23, 'Row 1',       '',     true, 1, 22,     0.0, 1,     10.0,   30.0,   180.0,  20.0),     -- Grouping object for row 1 in section D
+(24, 'Seat 1',      '',     true, 1, 23,     0.0, 2,     5.0,    5.0,    10.0,   10.0),       -- Child of object 23 (seat 13 row 1)
+(25, 'Seat 2',      '',     true, 1, 23,     0.0, 2,     15.0,   5.0,    10.0,   10.0),       -- Child of object 23 (seat 14 row 1)
+(26, 'Row 2',       '',     true, 1, 22,     0.0, 1,     10.0,   60.0,   180.0,  20.0),     -- Grouping object for row 2 in section D
+(27, 'Seat 3',      '',     true, 1, 26,     0.0, 2,     5.0,    5.0,    10.0,   10.0),       -- Child of object 26 (seat 15 row 2)
+(28, 'Seat 4',      '',     true, 1, 26,     0.0, 2,     15.0,   5.0,    10.0,   10.0);       -- Child of object 26 (seat 16 row 2)
 
 
 -- Inserting venue section data
