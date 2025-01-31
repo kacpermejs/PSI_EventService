@@ -14,5 +14,5 @@ public class TicketMetadata implements SchematicObjectMetadata {
     }
     private long id;
     private boolean available;
-    private String price;
+    private double price;
 }

@@ -1,6 +1,9 @@
 server:
   port: 8080
 
+api:
+  ticket-base-url: http://ticket-service:8082
+
 spring:
   profiles:
     active: ${SPRING_PROFILES_ACTIVE:dev}

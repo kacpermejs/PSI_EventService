@@ -1,5 +1,6 @@
 package com.PSI.EventService.Controllers;
 
+import com.PSI.EventService.Clients.TicketClient;
 import com.PSI.EventService.DTOs.SchematicObjectMetadata.VenueSchematicMetadataExtender;
 import com.PSI.EventService.DTOs.TicketDTO;
 import com.PSI.EventService.DTOs.VenueSchematicDTO;
@@ -13,7 +14,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.client.RestTemplate;
+import reactor.core.publisher.Mono;
+import reactor.core.scheduler.Schedulers;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,37 +30,26 @@ public class VenueSchematicController {
     @Autowired
     private VenueSchematicMetadataExtender metadataExtender;
 
-//    @Autowired
-//    private RestTemplate restTemplate;
+    @Autowired
+    private TicketClient ticketClient;
 
     @GetMapping("/{id}")
-    public VenueSchematicDTO getVenueSchematic(@PathVariable Long id) {
-        VenueSchematicDTO venueSchematic = venueSchematicService.getVenueSchematicById(id);
+    public Mono<VenueSchematicDTO> getVenueSchematic(@PathVariable Long id) {
+        // Run both operations in parallel
+        Mono<VenueSchematicDTO> venueSchematicMono = Mono.fromCallable(() -> venueSchematicService.getVenueSchematicById(id))
+                .subscribeOn(Schedulers.boundedElastic()); // Moves to a separate thread
 
-//        String url = "http://other-microservice/api/" + id;
-//        ResponseEntity<List<TicketDTO>> response = restTemplate.exchange(
-//                url,
-//                HttpMethod.GET,
-//                null,
-//                new ParameterizedTypeReference<List<TicketDTO>>() {}
-//        );
+        Mono<List<TicketDTO>> ticketsMono = ticketClient.findAllById(id)
+                .subscribeOn(Schedulers.boundedElastic()); // API call is already non-blocking
 
-        // List<TicketDTO> tickets = response.getBody();
-        var tickets = new ArrayList<TicketDTO>();
-        for (long i = 1; i <= 16; i++) {
-            TicketDTO ticket = TicketDTO.builder()
-                    .id(i)
-                    .reservationState(TicketReservationState.Available) // Assuming a default state
-                    .seatId(i) // Assuming seatId matches the id for simplicity
-                    .price("$50") // Assuming a default price
-                    .build();
-
-            tickets.add(ticket);
-        }
-
-        metadataExtender.extend(venueSchematic, tickets);
-
-        return venueSchematic;
+        // Combine results and process them in `metadataExtender`
+        return Mono.zip(venueSchematicMono, ticketsMono)
+                .map(tuple -> {
+                    VenueSchematicDTO venueSchematic = tuple.getT1();
+                    List<TicketDTO> tickets = tuple.getT2();
+                    metadataExtender.extend(venueSchematic, tickets);
+                    return venueSchematic;
+                });
     }
 }
 
