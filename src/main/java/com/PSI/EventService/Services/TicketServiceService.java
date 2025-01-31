@@ -7,8 +7,6 @@ import com.PSI.EventService.DTOs.TicketService.SchematicTicketDTO;
 import com.PSI.EventService.DTOs.VenueSchematicDTO;
 import com.PSI.EventService.Models.Venue;
 import com.PSI.EventService.Models.VenueSchematic;
-import com.PSI.EventService.Repositories.EventRepository;
-import com.PSI.EventService.Repositories.VenueSchematicRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,28 +17,10 @@ import java.util.List;
 public class TicketServiceService {
 
     @Autowired
-    EventRepository eventRepository;
-
-    @Autowired
     EventDetailsService eventDetailsService;
 
     @Autowired
-    private VenueSchematicService venueSchematicService;
-
-
-    private void processSchematic(SchematicObjectDTO schematic, List<SchematicTicketDTO> schematicTicketDTOS) {
-        SchematicTicketDTO schematicTicketDTO = new SchematicTicketDTO();
-        schematicTicketDTO.setId(schematic.getId());
-        schematicTicketDTO.setName(schematic.getName());
-
-        schematicTicketDTOS.add(schematicTicketDTO);
-
-        if (schematic.getChildren() != null) {
-            for (SchematicObjectDTO child : schematic.getChildren()) {
-                processSchematic(child, schematicTicketDTOS);
-            }
-        }
-    }
+    private SeatService seatService;
 
     public EventTicketDTO getSomeEventInfo(long eventId) {
 
@@ -48,7 +28,7 @@ public class TicketServiceService {
 
         System.out.println("D.........................");
         // get Event Info
-        EventDetailsDTO eventDetailsDTO = eventDetailsService.getEventById(eventId).get();
+        EventDetailsDTO eventDetailsDTO = eventDetailsService.getEventById(eventId).orElseThrow();
         eventTicketDTO.setEventName(eventDetailsDTO.getTitle());
         eventTicketDTO.setEventStart(eventDetailsDTO.getEventStartDate());
 
@@ -65,25 +45,22 @@ public class TicketServiceService {
 
         // get schematic info
         long venue_schematic_id = eventDetailsDTO.getVenueSchematic().getId();
-        VenueSchematicDTO venueSchematicDTO = venueSchematicService.getVenueSchematicById(venue_schematic_id);
-        List<SchematicObjectDTO> schematicObjects = venueSchematicDTO.getSchematicObjects();
-
-        System.out.println("G.........................");
-        System.out.println(venue_schematic_id);
-        System.out.println(venueSchematicDTO);
-        System.out.println("H.........................");
+        var seats = seatService.getSeatsBySchematicId(venue_schematic_id);
 
         List<SchematicTicketDTO> schematicTicketDTOS = new ArrayList<>();
 
-        for (SchematicObjectDTO schematic: schematicObjects) {
-            processSchematic(schematic, schematicTicketDTOS);
-        }
+        seats.forEach((seat) -> {
+            schematicTicketDTOS.add(SchematicTicketDTO.builder()
+                    .id(seat.getId())
+                    .name(seat.getName())
+                    .label(seat.getLabel())
+                    .seatRow(seat.getRow())
+                    .seatColumn(seat.getColumn())
+                    .sectionLabel(seat.getVenueSection().getLabel())
+                    .build());
+        });
 
         eventTicketDTO.setSchematicTicketDTOs(schematicTicketDTOS);
-
-        System.out.println("I.........................");
-        System.out.println(eventTicketDTO);
-        System.out.println("J.........................");
 
         return eventTicketDTO;
     }
