@@ -69,31 +69,31 @@ VALUES
 -- Inserting venue section data
 INSERT INTO venue_section (id, schematic_object_id, schematic_id, capacity, label)
 VALUES
-(1, 1, 1, NULL, 'Section A'),  -- Section for schematic object 1
-(2, 8, 1, NULL, 'Section B'),  -- Section for schematic object 2
-(3, 15, 1, NULL, 'Section C'), -- Section for schematic object 15
-(4, 22, 1, NULL, 'Section D'); -- Section for schematic object 22
+(1, 1, 1, NULL, 'A'),  -- Section for schematic object 1
+(2, 8, 1, NULL, 'B'),  -- Section for schematic object 2
+(3, 15, 1, NULL, 'C'), -- Section for schematic object 15
+(4, 22, 1, NULL, 'D'); -- Section for schematic object 22
 
 -- Inserting seat data
 -- SeatType enum mapped as smallint: Single = 0, Double = 1, Disabled = 2, Custom = 3
 INSERT INTO seat (id, schematic_id, schematic_object_id, venue_section_id, capacity, type, label, name, seat_column, seat_row)
 VALUES
-(1, 1, 3, 1, 1, 0, 'r1c1sA', NULL, '1', '1'), -- Seat in Section A
-(2, 1, 4, 1, 1, 0, 'r1c2sA', NULL, '2', '1'), -- Another seat in Section A
-(3, 1, 6, 1, 1, 0, 'r2c1sA', NULL, '1', '2'), -- Seat in Section A, Row 2
-(4, 1, 7, 1, 1, 0, 'r2c2sA', NULL, '2', '2'), -- Seat in Section A, Row 2
-(5, 1, 10, 2, 1, 0, 'r1c1sB', NULL, '1', '1'), -- Seat in Section B
-(6, 1, 11, 2, 1, 0, 'r1c2sB', NULL, '2', '1'), -- Another seat in Section B
-(7, 1, 13, 2, 1, 0, 'r2c1sB', NULL, '1', '2'), -- Seat in Section B, Row 2
-(8, 1, 14, 2, 1, 0, 'r2c2sB', NULL, '2', '2'), -- Seat in Section B, Row 2
-(9, 1, 17, 3, 1, 0, 'r1c1sC', NULL, '1', '1'), -- Seat in Section C
-(10, 1, 18, 3, 1, 0, 'r1c2sC', NULL, '2', '1'), -- Another seat in Section C
-(11, 1, 20, 3, 1, 0, 'r2c1sC', NULL, '1', '2'), -- Seat in Section C, Row 2
-(12, 1, 21, 3, 1, 0, 'r2c2sC', NULL, '2', '2'), -- Seat in Section C, Row 2
-(13, 1, 24, 4, 1, 0, 'r1c1sD', NULL, '1', '1'), -- Seat in Section D
-(14, 1, 25, 4, 1, 0, 'r1c2sD', NULL, '2', '1'), -- Another seat in Section D
-(15, 1, 27, 4, 1, 0, 'r2c1sD', NULL, '1', '2'), -- Seat in Section D, Row 2
-(16, 1, 28, 4, 1, 0, 'r2c2sD', NULL, '2', '2'); -- Seat in Section D, Row 2
+(1, 1, 3, 1, 1, 0, 'r1c1sA', 'Seat', '1', '1'), -- Seat in Section A
+(2, 1, 4, 1, 1, 0, 'r1c2sA', 'Seat', '2', '1'), -- Another seat in Section A
+(3, 1, 6, 1, 1, 0, 'r2c1sA', 'Seat', '1', '2'), -- Seat in Section A, Row 2
+(4, 1, 7, 1, 1, 0, 'r2c2sA', 'Seat', '2', '2'), -- Seat in Section A, Row 2
+(5, 1, 10, 2, 1, 0, 'r1c1sB', 'Seat', '1', '1'), -- Seat in Section B
+(6, 1, 11, 2, 1, 0, 'r1c2sB', 'Seat', '2', '1'), -- Another seat in Section B
+(7, 1, 13, 2, 1, 0, 'r2c1sB', 'Seat', '1', '2'), -- Seat in Section B, Row 2
+(8, 1, 14, 2, 1, 0, 'r2c2sB', 'Seat', '2', '2'), -- Seat in Section B, Row 2
+(9, 1, 17, 3, 1, 0, 'r1c1sC', 'Seat', '1', '1'), -- Seat in Section C
+(10, 1, 18, 3, 1, 0, 'r1c2sC', 'Seat', '2', '1'), -- Another seat in Section C
+(11, 1, 20, 3, 1, 0, 'r2c1sC', 'Seat', '1', '2'), -- Seat in Section C, Row 2
+(12, 1, 21, 3, 1, 0, 'r2c2sC', 'Seat', '2', '2'), -- Seat in Section C, Row 2
+(13, 1, 24, 4, 1, 0, 'r1c1sD', 'Seat', '1', '1'), -- Seat in Section D
+(14, 1, 25, 4, 1, 0, 'r1c2sD', 'Seat', '2', '1'), -- Another seat in Section D
+(15, 1, 27, 4, 1, 0, 'r2c1sD', 'Seat', '1', '2'), -- Seat in Section D, Row 2
+(16, 1, 28, 4, 1, 0, 'r2c2sD', 'Seat', '2', '2'); -- Seat in Section D, Row 2
 
 -- Insert Event data with EventStatus enum mapped as smallint
 -- Active = 0, Canceled = 1, Finished = 2, Draft = 3
