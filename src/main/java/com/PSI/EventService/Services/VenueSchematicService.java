@@ -12,6 +12,7 @@ import com.PSI.EventService.Models.VenueSection;
 import com.PSI.EventService.Repositories.VenueSchematicRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -21,6 +22,7 @@ public class VenueSchematicService {
     @Autowired
     private VenueSchematicRepository venueSchematicRepository;
 
+    @Transactional(readOnly = true)
     public VenueSchematicDTO getVenueSchematicById(Long id) {
         VenueSchematic venueSchematic = venueSchematicRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("VenueSchematic not found"));
