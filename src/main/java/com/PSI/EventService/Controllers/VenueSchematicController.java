@@ -4,12 +4,8 @@ import com.PSI.EventService.Clients.TicketClient;
 import com.PSI.EventService.DTOs.SchematicObjectMetadata.VenueSchematicMetadataExtender;
 import com.PSI.EventService.DTOs.TicketDTO;
 import com.PSI.EventService.DTOs.VenueSchematicDTO;
-import com.PSI.EventService.Enums.TicketReservationState;
 import com.PSI.EventService.Services.VenueSchematicService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.ParameterizedTypeReference;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,7 +13,6 @@ import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Mono;
 import reactor.core.scheduler.Schedulers;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -36,7 +31,7 @@ public class VenueSchematicController {
     @GetMapping("/{id}")
     public Mono<VenueSchematicDTO> getVenueSchematic(@PathVariable Long id) {
         // Run both operations in parallel
-        Mono<VenueSchematicDTO> venueSchematicMono = Mono.fromCallable(() -> venueSchematicService.getVenueSchematicById(id))
+        Mono<VenueSchematicDTO> venueSchematicMono = Mono.fromCallable(() -> venueSchematicService.getVenueSchematicByEventId(id))
                 .subscribeOn(Schedulers.boundedElastic()); // Moves to a separate thread
 
         Mono<List<TicketDTO>> ticketsMono = ticketClient.findAllById(id)

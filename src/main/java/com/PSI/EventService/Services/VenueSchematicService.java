@@ -23,7 +23,7 @@ public class VenueSchematicService {
     private VenueSchematicRepository venueSchematicRepository;
 
     @Transactional(readOnly = true)
-    public VenueSchematicDTO getVenueSchematicById(Long id) {
+    public VenueSchematicDTO getVenueSchematicByEventId(Long id) {
         VenueSchematic venueSchematic = venueSchematicRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("VenueSchematic not found"));
 
